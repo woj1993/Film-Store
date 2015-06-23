@@ -24,7 +24,7 @@
             <input type="password" name="hasło" value="" />
             <input type="submit" value="Zaloguj" />
         </form>
-        <form action="Rejesetracja.jsp" method="POST">
+        <form action="Rejestracja.jsp" method="POST">
               <input type="submit" value="Rejestruj" />
         </form>
     </body>

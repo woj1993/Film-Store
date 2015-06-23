@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Login zajęty.</h1>
-        <form action="Rejesetracja.jsp" method="POST">
+        <form action="Rejestracja.jsp" method="POST">
             <input type="submit" value="Ok." />
         </form>
     </body>
