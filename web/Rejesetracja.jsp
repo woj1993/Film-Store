@@ -23,5 +23,8 @@
             <input type="text" name="imie" value="">
             <input type="submit" value="Zarejestruj" />
         </form>
+        <form action="Main.jsp" method="POST">
+            <input type="submit" value="Anuluj" />
+    </form>
     </body>
 </html>
