@@ -5,10 +5,12 @@
  */
 package Beans;
 
+import Beans.UŻYTKOWNIK;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -87,5 +89,24 @@ public class SQL implements Serializable {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+    
+    public UŻYTKOWNIK logVerification(String login, String hasło) {
+
+        String query = "SELECT * FROM Users WHERE login=? AND hasło=?;";
+        UŻYTKOWNIK Użytkownik = null;
+
+        try {
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setString(1, login);
+            preparedstatment.setString(2, hasło);
+            try (ResultSet rs = preparedstatment.executeQuery()) {
+                rs.next();
+                Użytkownik = new UŻYTKOWNIK(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getBoolean(5));
+            }
+            preparedstatment.close();
+        } catch (Exception e) {
+        }
+        return Użytkownik;
     }
 }

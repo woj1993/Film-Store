@@ -34,9 +34,19 @@ public class Verification extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        sesja = request.getSession();
+        
+        sql = new SQL();
+        Użytkownik = sql.logVerification(request.getParameter("login"), request.getParameter("hasło"));
         try (PrintWriter out = response.getWriter()) {
-            
+            if (null == Użytkownik) {
+                request.getRequestDispatcher("IncorectUserData.jsp").forward(request, response);
+            }else{
+                request.getRequestDispatcher("Main.jsp").forward(request, response);
+            }
         }
     }
 
