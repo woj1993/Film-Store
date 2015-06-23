@@ -91,7 +91,7 @@ public class SQL implements Serializable {
         }
     }
     
-    public UŻYTKOWNIK logVerification(String login, String hasło) {
+    public UŻYTKOWNIK SprawdźUżytkownika(String login, String hasło) {
 
         String query = "SELECT * FROM Users WHERE login=? AND hasło=?;";
         UŻYTKOWNIK Użytkownik = null;

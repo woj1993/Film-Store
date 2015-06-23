@@ -40,7 +40,7 @@ public class Verification extends HttpServlet {
         sesja = request.getSession();
         
         sql = new SQL();
-        Użytkownik = sql.logVerification(request.getParameter("login"), request.getParameter("hasło"));
+        Użytkownik = sql.SprawdźUżytkownika(request.getParameter("login"), request.getParameter("hasło"));
         try (PrintWriter out = response.getWriter()) {
             if (null == Użytkownik) {
                 request.getRequestDispatcher("IncorectUserData.jsp").forward(request, response);
