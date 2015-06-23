@@ -23,8 +23,8 @@
             <input type="text" name="imie" value="">
             <input type="submit" value="Zarejestruj" />
         </form>
-        <form action="Main.jsp" method="POST">
+        <form action="Logowanie.jsp" method="POST">
             <input type="submit" value="Anuluj" />
-    </form>
+        </form>
     </body>
 </html>

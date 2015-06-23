@@ -20,9 +20,11 @@ import javax.servlet.http.HttpSession;
  * @author Wojtek
  */
 public class Verification extends HttpServlet {
-            private SQL sql;
-            private UŻYTKOWNIK Użytkownik;
-            private HttpSession sesja;
+
+    private SQL sql;
+    private UŻYTKOWNIK Użytkownik;
+    private HttpSession sesja;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,17 +36,17 @@ public class Verification extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         sesja = request.getSession();
-        
+
         sql = new SQL();
         Użytkownik = sql.SprawdźUżytkownika(request.getParameter("login"), request.getParameter("hasło"));
         try (PrintWriter out = response.getWriter()) {
             if (null == Użytkownik) {
                 request.getRequestDispatcher("IncorectUserData.jsp").forward(request, response);
-            }else{
+            } else {
                 request.getRequestDispatcher("Main.jsp").forward(request, response);
             }
         }

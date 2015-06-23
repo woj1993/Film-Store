@@ -25,7 +25,7 @@
             <input type="submit" value="Zaloguj" />
         </form>
         <form action="Rejestracja.jsp" method="POST">
-              <input type="submit" value="Rejestruj" />
+            <input type="submit" value="Rejestruj" />
         </form>
     </body>
 </html>

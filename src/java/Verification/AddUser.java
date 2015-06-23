@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "AddUser", urlPatterns = {"/AddUser.do"})
 public class AddUser extends HttpServlet {
+
     private SQL sql;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,7 +44,7 @@ public class AddUser extends HttpServlet {
             Ok = sql.WstawUżytkownika(request.getParameter("login"), request.getParameter("hasło"), request.getParameter("imie"), Boolean.FALSE, Boolean.FALSE);
             if (Objects.equals(Boolean.TRUE, Ok)) {
                 request.getRequestDispatcher("Logowanie.jsp").forward(request, response);
-            }else{
+            } else {
                 request.getRequestDispatcher("RejestracjaNieudana.jsp").forward(request, response);
             }
         }

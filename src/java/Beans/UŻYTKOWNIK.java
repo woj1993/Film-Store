@@ -6,33 +6,38 @@
 package Beans;
 
 import java.io.Serializable;
+
 /**
  *
  * @author Wojtek
  */
-public class UŻYTKOWNIK implements Serializable{
+public class UŻYTKOWNIK implements Serializable {
+
     private String login;
     private String hasło;
     private String imie;
     private Boolean admin;
     private Boolean zapłacił;
-    
-    public UŻYTKOWNIK(){}
-    public UŻYTKOWNIK(String login,String hasło,String imie, Boolean admin,Boolean zapłacił){
-        this.login=login;
-        this.hasło=hasło;
-        this.imie=imie;
-        this.admin=admin;
-        this.zapłacił=zapłacił;
+
+    public UŻYTKOWNIK() {
     }
-    public void SetLogin(String Login){
-        this.login=Login;
+
+    public UŻYTKOWNIK(String login, String hasło, String imie, Boolean admin, Boolean zapłacił) {
+        this.login = login;
+        this.hasło = hasło;
+        this.imie = imie;
+        this.admin = admin;
+        this.zapłacił = zapłacił;
     }
-    
-    public String GetLogin(){
+
+    public void SetLogin(String Login) {
+        this.login = Login;
+    }
+
+    public String GetLogin() {
         return login;
     }
-    
+
     public String GetHasło() {
         return hasło;
     }
@@ -60,5 +65,5 @@ public class UŻYTKOWNIK implements Serializable{
     public boolean Zapłacił() {
         return zapłacił.equals(true);
     }
-    
+
 }

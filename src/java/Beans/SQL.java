@@ -21,17 +21,21 @@ import java.util.logging.Logger;
  * @author Wojtek
  */
 public class SQL implements Serializable {
+
     private Connection połączenie = null;
     private Statement rawstatment = null;
     private PreparedStatement preparedstatment;
-    public SQL(){
-    try {
+
+    public SQL() {
+        try {
             Class.forName("org.sqlite.JDBC");
             połączenie = DriverManager.getConnection("jdbc:sqlite:użytkownicy.db");
             createTable();
 
         } catch (ClassNotFoundException | SQLException e) {
-        }}
+        }
+    }
+
     private void createTable() throws SQLException {
 
         String tabFilmy = "CREATE TABLE IF NOT EXISTS Filmy"
@@ -47,19 +51,21 @@ public class SQL implements Serializable {
                 + " admin       Boolean,"
                 + " abonament_zapłacony Boolean,"
                 + "CONSTRAINT pk	PRIMARY KEY(login))";
-        
-    rawstatment = połączenie.createStatement();
+
+        rawstatment = połączenie.createStatement();
         rawstatment.executeUpdate(tabFilmy);
         rawstatment.executeUpdate(tabUżytkownicy);
         rawstatment.close();
         WstawUżytkownika("a", "a", "a", true, true);
-        WstawFilm("dan","dan","dan","http://www.mp4upload.com/znqard8wfaex");}
-    
-        public boolean isConnection() {
+        WstawFilm("dan", "dan", "dan", "http://www.mp4upload.com/znqard8wfaex");
+    }
+
+    public boolean isConnection() {
         return połączenie != null;
 
     }
-    public boolean WstawUżytkownika(String login,String hasło,String imie,Boolean admin, Boolean zapłacił){
+
+    public boolean WstawUżytkownika(String login, String hasło, String imie, Boolean admin, Boolean zapłacił) {
         String query = "INSERT INTO Users VALUES(?,?,?,?,?);";
         try {
             preparedstatment = połączenie.prepareStatement(query);
@@ -75,7 +81,8 @@ public class SQL implements Serializable {
             return false;
         }
     }
-    public boolean WstawFilm(String Nazwa,String Autor,String Opis,String URL){
+
+    public boolean WstawFilm(String Nazwa, String Autor, String Opis, String URL) {
         String query = "INSERT INTO Filmy VALUES(?,?,?,?,?);";
         try {
             preparedstatment = połączenie.prepareStatement(query);
@@ -90,7 +97,7 @@ public class SQL implements Serializable {
             return false;
         }
     }
-    
+
     public UŻYTKOWNIK SprawdźUżytkownika(String login, String hasło) {
 
         String query = "SELECT * FROM Users WHERE login=? AND hasło=?;";
