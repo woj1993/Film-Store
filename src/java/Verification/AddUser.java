@@ -41,6 +41,9 @@ public class AddUser extends HttpServlet {
         Boolean Ok;
         try (PrintWriter out = response.getWriter()) {
             sql = new SQL();
+            if (request.getParameter("hasło") != request.getParameter("rehasło")) {
+                request.getRequestDispatcher("RejestracjaNieudana.jsp").forward(request, response);
+            }
             Ok = sql.WstawUżytkownika(request.getParameter("login"), request.getParameter("hasło"), request.getParameter("imie"), Boolean.FALSE, Boolean.FALSE);
             if (Objects.equals(Boolean.TRUE, Ok)) {
                 request.getRequestDispatcher("Logowanie.jsp").forward(request, response);

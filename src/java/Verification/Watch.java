@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  * @author Wojtek
  */
 public class Watch extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,11 +35,10 @@ public class Watch extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            UŻYTKOWNIK Użytkownik=(UŻYTKOWNIK) request.getSession().getAttribute("Użytkownik");
-            if (true == Użytkownik.Zapłacił())
-            {
+            UŻYTKOWNIK Użytkownik = (UŻYTKOWNIK) request.getSession().getAttribute("Użytkownik");
+            if (true == Użytkownik.Zapłacił()) {
                 request.getRequestDispatcher("WyswietlenieFilmu.jsp").forward(request, response);
-            }else{
+            } else {
                 request.getRequestDispatcher("NieZapłacono.jsp").forward(request, response);
             }
         }

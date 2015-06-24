@@ -29,7 +29,7 @@ public class SQL implements Serializable {
     public SQL() {
         try {
             Class.forName("org.sqlite.JDBC");
-            połączenie = DriverManager.getConnection("jdbc:sqlite:użytkownicy.db");
+            połączenie = DriverManager.getConnection("jdbc:sqlite:aaa.db");
             createTable();
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -116,7 +116,7 @@ public class SQL implements Serializable {
         }
         return Użytkownik;
     }
-    
+
     public ArrayList<FILM> PokażFilmy() {
         String query;
         query = "SELECT * FROM Filmy ";
@@ -126,18 +126,18 @@ public class SQL implements Serializable {
             preparedstatment = połączenie.prepareStatement(query);
 
             try (ResultSet rs = preparedstatment.executeQuery()) {
-                    while (rs.next()) {
+                while (rs.next()) {
                     Film = new FILM(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
                     System.out.println(Film);
                     FilmyList.add(Film);
-                    }
+                }
             }
             preparedstatment.close();
         } catch (Exception e) {
         }
         return FilmyList;
     }
-    
+
     public FILM WybierzJedenFilm(String Tytuł) {
         String query = "SELECT * FROM Filmy WHERE tytuł=?;";
         FILM Film = null;
@@ -153,5 +153,39 @@ public class SQL implements Serializable {
         } catch (Exception e) {
         }
         return Film;
+    }
+
+    public ArrayList<UŻYTKOWNIK> WybierzWszystkich() {
+        String query;
+        query = "SELECT * FROM Users WHERE login<>'admin';";
+        ArrayList<UŻYTKOWNIK> userList = new ArrayList<>();
+        UŻYTKOWNIK Użytkownik;
+        try {
+            preparedstatment = połączenie.prepareStatement(query);
+            try (ResultSet rs = preparedstatment.executeQuery()) {
+                while (rs.next()) {
+                    Użytkownik = new UŻYTKOWNIK(rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getBoolean(5));
+                    userList.add(Użytkownik);
+                }
+            }
+            preparedstatment.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+    public boolean UsuńUżytkownika(String Login) {
+        System.out.println("deleteUser start");
+        //String query = "DELETE from users WHERE login='" + login + "';";
+        String query = "DELETE from Użytkownicy WHERE login=?";
+        try {
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setString(1, Login);
+            preparedstatment.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
     }
 }

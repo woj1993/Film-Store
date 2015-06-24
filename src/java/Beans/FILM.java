@@ -12,51 +12,52 @@ import java.io.Serializable;
  * @author Wojtek
  */
 public class FILM implements Serializable {
+
     private String Tytuł;
     private String Autor;
     private String Rok;
     private String Film;
-    public FILM(){
-        
+
+    public FILM() {
+
     }
-    
-    public FILM(String Tytuł,String Autor,String Rok,String Film)
-    {
-        this.Tytuł=Tytuł;
-        this.Autor=Autor;
-        this.Rok=Rok;
-        this.Film=Film;
+
+    public FILM(String Tytuł, String Autor, String Rok, String Film) {
+        this.Tytuł = Tytuł;
+        this.Autor = Autor;
+        this.Rok = Rok;
+        this.Film = Film;
     }
-    
-    public String GetTytuł(){
+
+    public String GetTytuł() {
         return Tytuł;
     }
-    
-    public void SetTytuł(String Tytuł){
-        this.Tytuł=Tytuł;
+
+    public void SetTytuł(String Tytuł) {
+        this.Tytuł = Tytuł;
     }
-    
-    public String GetAutor(){
+
+    public String GetAutor() {
         return Autor;
     }
-    
-    public void SetAutor(String Autor){
-        this.Autor=Autor;
+
+    public void SetAutor(String Autor) {
+        this.Autor = Autor;
     }
-    
-    public String GetRok(){
+
+    public String GetRok() {
         return Rok;
     }
-    
-    public void SetRok(String Rok){
-        this.Rok=Rok;
+
+    public void SetRok(String Rok) {
+        this.Rok = Rok;
     }
-    
-    public String GetFilm(){
+
+    public String GetFilm() {
         return Film;
     }
-    
-    public void SetFilm(String Film){
-        this.Film=Film;
+
+    public void SetFilm(String Film) {
+        this.Film = Film;
     }
 }

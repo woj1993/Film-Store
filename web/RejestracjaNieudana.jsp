@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Login zajęty.</h1>
+        <h1>Login zajęty lub podano różne hasła.</h1>
         <form action="Rejestracja.jsp" method="POST">
             <input type="submit" value="Ok." />
         </form>

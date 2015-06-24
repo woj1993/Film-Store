@@ -6,7 +6,7 @@
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <% request.setCharacterEncoding("UTF-8");
-    response.setCharacterEncoding("UTF-8"); %>
+    response.setCharacterEncoding("UTF-8");%>
 <jsp:include page="Funkcje.jsp" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -27,7 +27,6 @@
                 <thead>
                     <tr>
                         <th>FORMULARZ</th>
-
                     </tr>
                 </thead>
                 <tbody>
