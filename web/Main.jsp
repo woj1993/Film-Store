@@ -19,7 +19,7 @@
             <input type="hidden" name="phase" value="" disabled="disabled" />
             <input type="submit" value="ListaFilmów" />
         </form>
-        <form action="Filmy.jsp"><input type="submit" value="Dodaj Film" />
+        <form action="Film.jsp"><input type="submit" value="Dodaj Film" />
         </form>
     </body>
 </html>

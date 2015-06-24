@@ -4,9 +4,25 @@
         <servlet-name>Verification</servlet-name>
         <servlet-class>Verification.Verification</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Watch</servlet-name>
+        <servlet-class>Verification.Watch</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddFilm</servlet-name>
+        <servlet-class>Verification.AddFilm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Verification</servlet-name>
         <url-pattern>/Verification.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Watch</servlet-name>
+        <url-pattern>/Watch.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFilm</servlet-name>
+        <url-pattern>/AddFilm.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

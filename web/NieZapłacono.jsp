@@ -1,6 +1,6 @@
 <%-- 
-    Document   : WyświetlenieFilmu
-    Created on : 2015-06-24, 14:45:24
+    Document   : NieZapłacono
+    Created on : 2015-06-24, 22:22:17
     Author     : Wojtek
 --%>
 
@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <IFRAME SRC="http://www.mp4upload.com/embed-znqard8wfaex.html" allowfullscreen="true" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360></IFRAME>
+        <h1>Nie opłaciłeś abonamentu.</h1>
         <form action="Main.jsp">
             <input type="submit" value="Powrót" />
         </form>

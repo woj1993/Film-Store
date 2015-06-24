@@ -5,7 +5,6 @@
  */
 package Beans;
 
-import Beans.UŻYTKOWNIK;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,7 +42,7 @@ public class SQL implements Serializable {
                 + "(tytuł VARCHAR(20)     NOT NULL,"
                 + " autor VARCHAR(20)    NOT NULL, "
                 + " rok   VARCHAR(20) NOT NULL, "
-                + " Film        VARCHAR(100),"
+                + " Film        VARCHAR(100) NOT NULL,"
                 + "CONSTRAINT pk	PRIMARY KEY(tytuł))";
         String tabUżytkownicy = "CREATE TABLE IF NOT EXISTS Users"
                 + "(login VARCHAR(30)     NOT NULL,"
@@ -137,5 +136,22 @@ public class SQL implements Serializable {
         } catch (Exception e) {
         }
         return FilmyList;
+    }
+    
+    public FILM WybierzJedenFilm(String Tytuł) {
+        String query = "SELECT * FROM Filmy WHERE tytuł=?;";
+        FILM Film = null;
+
+        try {
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setString(1, Tytuł);
+            try (ResultSet rs = preparedstatment.executeQuery()) {
+                rs.next();
+                Film = new FILM(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            }
+            preparedstatment.close();
+        } catch (Exception e) {
+        }
+        return Film;
     }
 }

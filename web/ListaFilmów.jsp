@@ -15,9 +15,52 @@
         <%  ArrayList<FILM> Filmy;
             Filmy = sql.PokażFilmy();
         %>
-        <%for (FILM Film : Filmy){%>
-            <%=Film.GetTytuł()%>
-        <%}%>
-        <p><A HREF="Panel.jsp">Panel Głowny</A></p>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th><select name="choose">
+                                    <option></option>
+                                    <option>Autor</option>
+                                    <option>Tytuł</option>
+                                </select></th>
+                            <th><input type="text" name="phase" value="" /></th>
+                            <th><input type="submit" value="Wyświetl" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Autor</th>
+                        <th>Tytuł</th>
+                        <th>Szczegóły</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%  for (FILM Film : Filmy) {%>
+                    <tr>
+                        <td><%=Film.GetAutor()%></td>
+                        <td><%=Film.GetTytuł()%></td>
+                        <td>
+                            <form action="FilmDetails.jsp" method="POST">
+                                <input type="hidden" name="tytuł" value="<%=Film.GetTytuł()%>" />
+                                <input type="submit" value="Szczegóły" />
+                            </form>
+                            <form action="UpdateFilm.do">
+                                <input type="hidden" name="action" value="delete" />
+                                <input type="hidden" name="title" value="<%=Film.GetTytuł()%>" />
+                                <input type="submit" value="Usuń" />
+                            </form>
+
+                        </td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+
+        <p><A HREF="Main.jsp">Panel Głowny</A></p>
     </body>
 </html>
