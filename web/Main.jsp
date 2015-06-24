@@ -12,6 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Użytkownik Istnieje.</h1>
+        <jsp:include page="Status.jsp" />
+        <form action="ListaFilmów.jsp" method="POST">
+
+            <input type="hidden" name="choose" value="" disabled="disabled" />
+            <input type="hidden" name="phase" value="" disabled="disabled" />
+            <input type="submit" value="ListaFilmów" />
+        </form>
+        <form action="Filmy.jsp"><input type="submit" value="Dodaj Film" />
+        </form>
     </body>
 </html>

@@ -47,6 +47,8 @@ public class Verification extends HttpServlet {
             if (null == Użytkownik) {
                 request.getRequestDispatcher("IncorectUserData.jsp").forward(request, response);
             } else {
+                sesja.setMaxInactiveInterval(15 * 60);
+                sesja.setAttribute("Użytkownik", Użytkownik);
                 request.getRequestDispatcher("Main.jsp").forward(request, response);
             }
         }

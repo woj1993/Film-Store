@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,7 +84,7 @@ public class SQL implements Serializable {
     }
 
     public boolean WstawFilm(String Nazwa, String Autor, String Opis, String URL) {
-        String query = "INSERT INTO Filmy VALUES(?,?,?,?,?);";
+        String query = "INSERT INTO Filmy VALUES(?,?,?,?);";
         try {
             preparedstatment = połączenie.prepareStatement(query);
             preparedstatment.setString(1, Nazwa);
@@ -115,5 +116,26 @@ public class SQL implements Serializable {
         } catch (Exception e) {
         }
         return Użytkownik;
+    }
+    
+    public ArrayList<FILM> PokażFilmy() {
+        String query;
+        query = "SELECT * FROM Filmy ";
+        ArrayList<FILM> FilmyList = new ArrayList<>();
+        FILM Film;
+        try {
+            preparedstatment = połączenie.prepareStatement(query);
+
+            try (ResultSet rs = preparedstatment.executeQuery()) {
+                    while (rs.next()) {
+                    Film = new FILM(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                    System.out.println(Film);
+                    FilmyList.add(Film);
+                    }
+            }
+            preparedstatment.close();
+        } catch (Exception e) {
+        }
+        return FilmyList;
     }
 }
