@@ -30,7 +30,7 @@
         <tr>
             <td>Zalogowany:  <%=Użytkownik.GetLogin()%>  </td>
             <td>
-                <form action="Panel.jsp" method="POST"><input type="submit" value="Panel Główny" />
+                <form action="Main.jsp" method="POST"><input type="submit" value="Panel Główny" />
                 </form>
             </td>
             <% if (Użytkownik.JestAdminem()) {%>
@@ -38,7 +38,7 @@
                 </form></td>
 
             <%}%>
-            <td><form action="Profile.jsp">
+            <td><form action="ZmieńDane.jsp">
                     <input type="submit" value="Profil" /> 
                 </form></td>
             <td><form action="Logowanie.jsp">

@@ -12,6 +12,18 @@
         <servlet-name>AddFilm</servlet-name>
         <servlet-class>Verification.AddFilm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>Verification.Delete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HasPayed</servlet-name>
+        <servlet-class>Verification.HasPayed</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>Verification.UpdateUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Verification</servlet-name>
         <url-pattern>/Verification.do</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>AddFilm</servlet-name>
         <url-pattern>/AddFilm.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/Delete.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HasPayed</servlet-name>
+        <url-pattern>/HasPayed.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/UpdateUser.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

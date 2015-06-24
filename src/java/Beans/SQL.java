@@ -175,9 +175,7 @@ public class SQL implements Serializable {
     }
 
     public boolean UsuńUżytkownika(String Login) {
-        System.out.println("deleteUser start");
-        //String query = "DELETE from users WHERE login='" + login + "';";
-        String query = "DELETE from Użytkownicy WHERE login=?";
+        String query = "DELETE from Users WHERE login=?";
         try {
             preparedstatment = połączenie.prepareStatement(query);
             preparedstatment.setString(1, Login);
@@ -187,5 +185,29 @@ public class SQL implements Serializable {
             System.out.println(e);
             return false;
         }
+    }
+    public boolean ZmieńHasło(String login, String hasło) {
+        String query = "UPDATE Users SET hasło='" + hasło + "'WHERE login='" + login + "';";
+        try {
+            rawstatment = połączenie.createStatement();
+            rawstatment.executeUpdate(query);
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
+
+    }
+    
+        public boolean ZmieńDanePersonalne(String login, String imie) {
+        String query = "UPDATE Users SET imie='" + imie + "'WHERE login='" + login + "';";
+        try {
+            rawstatment = połączenie.createStatement();
+            rawstatment.executeUpdate(query);
+
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
+
     }
 }

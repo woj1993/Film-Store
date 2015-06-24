@@ -39,13 +39,12 @@
                     <td><%=Użytkownik.GetImie()%></td>
                     <td><%=Użytkownik.JestAdminem()%></td>
                     <td><%=Użytkownik.Zapłacił()%></td>
-                    <td><form action="Usuń.do" method="POST">
-                            <input type="hidden" name="akcja" value="Usuń" />
+                    <td><form action="Delete.do" method="POST">
                             <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
                             <input type="submit" value="Usuń" />
                         </form>
                     </td>
-                    <td><form action="Zapłacił.do" method="POST">
+                    <td><form action="HasPayed.do" method="POST">
                             <input type="hidden" name="akcja" value="delete" />
                             <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
                             <input type="submit" value="Zmień" />

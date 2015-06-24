@@ -8,9 +8,7 @@ package Verification;
 import Beans.SQL;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Objects;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wojtek
  */
-@WebServlet(name = "AddUser", urlPatterns = {"/AddUser.do"})
-public class AddUser extends HttpServlet {
-
+public class HasPayed extends HttpServlet {
     private SQL sql;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,21 +30,9 @@ public class AddUser extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        Boolean Ok;
         try (PrintWriter out = response.getWriter()) {
-            sql = new SQL();
-            if (request.getParameter("hasło") == null ? request.getParameter("rehasło") != null : !request.getParameter("hasło").equals(request.getParameter("rehasło"))) {
-                request.getRequestDispatcher("RejestracjaNieudana.jsp").forward(request, response);
-            }
-            Ok = sql.WstawUżytkownika(request.getParameter("login"), request.getParameter("hasło"), request.getParameter("imie"), Boolean.FALSE, Boolean.FALSE);
-            if (Objects.equals(Boolean.TRUE, Ok)) {
-                request.getRequestDispatcher("Logowanie.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("RejestracjaNieudana.jsp").forward(request, response);
-            }
+            
         }
     }
 
