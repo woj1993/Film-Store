@@ -35,7 +35,7 @@ public class HasPayed extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             sql = new SQL();
-            if ("True".equals(request.getParameter("Zapłacił"))){
+            if ("false".equals(request.getParameter("Zapłacił"))){
                 sql.TakZapłacił(request.getParameter("Login"), Boolean.TRUE);
             }else{
                 sql.TakZapłacił(request.getParameter("Login"), Boolean.FALSE);

@@ -45,14 +45,9 @@
                         </form>
                     </td>
                     <td><form action="HasPayed.do" method="POST">
-                            <input type="hidden" name="Zapłacił" value="True" />
+                            <input type="hidden" name="Zapłacił" value="<%=String.valueOf(Użytkownik.Zapłacił())%>" />
                             <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
-                            <input type="submit" value="Zapłacił" />
-                        </form>
-                        <form action="HasPayed.do" method="POST">
-                            <input type="hidden" name="Zapłacił" value="False" />
-                            <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
-                            <input type="submit" value="NieZapłacił" />
+                            <input type="submit" value="Zmień" />
                         </form>
                     </td>
                 </tr>
