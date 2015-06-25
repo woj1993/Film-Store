@@ -119,7 +119,7 @@ public class SQL implements Serializable {
 
     public ArrayList<FILM> PokażFilmy() {
         String query;
-        query = "SELECT * FROM Filmy ";
+        query = "SELECT * FROM Filmy ORDER BY lower(tytuł);";
         ArrayList<FILM> FilmyList = new ArrayList<>();
         FILM Film;
         try {
