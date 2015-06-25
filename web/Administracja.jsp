@@ -45,10 +45,14 @@
                         </form>
                     </td>
                     <td><form action="HasPayed.do" method="POST">
-                            <input type="hidden" name="akcja" value="delete" />
-                            <input type="hidden" name="Zapłacił" value="<%=Użytkownik.Zapłacił()%>" />
+                            <input type="hidden" name="Zapłacił" value="True" />
                             <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
-                            <input type="submit" value="Zmień" />
+                            <input type="submit" value="Zapłacił" />
+                        </form>
+                        <form action="HasPayed.do" method="POST">
+                            <input type="hidden" name="Zapłacił" value="False" />
+                            <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
+                            <input type="submit" value="NieZapłacił" />
                         </form>
                     </td>
                 </tr>

@@ -35,7 +35,11 @@ public class HasPayed extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             sql = new SQL();
-            sql.TakZapłacił(request.getParameter("Login"), Boolean.TRUE);
+            if ("True".equals(request.getParameter("Zapłacił"))){
+                sql.TakZapłacił(request.getParameter("Login"), Boolean.TRUE);
+            }else{
+                sql.TakZapłacił(request.getParameter("Login"), Boolean.FALSE);
+            }
             request.getRequestDispatcher("Administracja.jsp").forward(request, response);
         }
     }
