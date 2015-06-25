@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Wojtek
  */
 public class DeleteFilm extends HttpServlet {
+
     private SQL sql;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

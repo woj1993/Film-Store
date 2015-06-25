@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Wojtek
  */
 public class UpdateUser extends HttpServlet {
+
     private SQL sql;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,7 +32,7 @@ public class UpdateUser extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {

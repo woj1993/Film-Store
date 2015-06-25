@@ -20,22 +20,6 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th><select name="choose">
-                            <option></option>
-                            <option>Autor</option>
-                            <option>Tytuł</option>
-                        </select></th>
-                    <th><input type="text" name="phase" value="" /></th>
-                    <th><input type="submit" value="Wyświetl" /></th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-
-        <table border="1">
-            <thead>
-                <tr>
                     <th>Autor</th>
                     <th>Tytuł</th>
                     <th>Szczegóły</th>
@@ -51,12 +35,12 @@
                             <input type="hidden" name="tytuł" value="<%=Film.GetTytuł()%>" />
                             <input type="submit" value="Szczegóły" />
                         </form>
-                            <% if (Użytkownik.JestAdminem()) {%>
+                        <% if (Użytkownik.JestAdminem()) {%>
                         <form action="DeleteFilm.do">
                             <input type="hidden" name="tytuł" value="<%=Film.GetTytuł()%>" />
                             <input type="submit" value="Usuń" />
                         </form>
-                            <%}%>
+                        <%}%>
 
                     </td>
                 </tr>

@@ -186,6 +186,7 @@ public class SQL implements Serializable {
             return false;
         }
     }
+
     public boolean ZmieńHasło(String login, String hasło) {
         String query = "UPDATE Users SET hasło=? WHERE login=?";
         try {
@@ -199,8 +200,8 @@ public class SQL implements Serializable {
         return false;
 
     }
-    
-        public boolean ZmieńDanePersonalne(String login, String imie) {
+
+    public boolean ZmieńDanePersonalne(String login, String imie) {
         String query = "UPDATE Users SET imie=? WHERE login=?";
         try {
             preparedstatment = połączenie.prepareStatement(query);
@@ -213,10 +214,10 @@ public class SQL implements Serializable {
         return false;
 
     }
-        
-        public boolean TakZapłacił(String Login, Boolean zapłacony){
-            String query = "UPDATE Users SET abonament_zapłacony=? WHERE login=?";
-            try {
+
+    public boolean TakZapłacił(String Login, Boolean zapłacony) {
+        String query = "UPDATE Users SET abonament_zapłacony=? WHERE login=?";
+        try {
             preparedstatment = połączenie.prepareStatement(query);
             preparedstatment.setBoolean(1, zapłacony);
             preparedstatment.setString(2, Login);
@@ -225,10 +226,10 @@ public class SQL implements Serializable {
         } catch (Exception e) {
         }
         return false;
-        }
-        
-        public boolean UsuńFilm(String Tytuł){
-            String query = "DELETE from Filmy WHERE tytuł=?";
+    }
+
+    public boolean UsuńFilm(String Tytuł) {
+        String query = "DELETE from Filmy WHERE tytuł=?";
         try {
             preparedstatment = połączenie.prepareStatement(query);
             preparedstatment.setString(1, Tytuł);
@@ -238,5 +239,5 @@ public class SQL implements Serializable {
             System.out.println(e);
             return false;
         }
-        }
+    }
 }

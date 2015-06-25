@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Wojtek
  */
 public class HasPayed extends HttpServlet {
+
     private SQL sql;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,9 +37,9 @@ public class HasPayed extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             sql = new SQL();
-            if ("false".equals(request.getParameter("Zapłacił"))){
+            if ("false".equals(request.getParameter("Zapłacił"))) {
                 sql.TakZapłacił(request.getParameter("Login"), Boolean.TRUE);
-            }else{
+            } else {
                 sql.TakZapłacił(request.getParameter("Login"), Boolean.FALSE);
             }
             request.getRequestDispatcher("Administracja.jsp").forward(request, response);
