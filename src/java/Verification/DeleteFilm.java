@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wojtek
  */
-public class Delete extends HttpServlet {
+public class DeleteFilm extends HttpServlet {
     private SQL sql;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,16 +30,14 @@ public class Delete extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             sql = new SQL();
-            sql.UsuńUżytkownika(request.getParameter("Login"));
-            request.getRequestDispatcher("Administracja.jsp").forward(request, response);
+            sql.UsuńFilm(request.getParameter("tytuł"));
+            request.getRequestDispatcher("ListaFilmów.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("Administracja.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

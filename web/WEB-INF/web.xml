@@ -24,6 +24,10 @@
         <servlet-name>UpdateUser</servlet-name>
         <servlet-class>Verification.UpdateUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteFilm</servlet-name>
+        <servlet-class>Verification.DeleteFilm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Verification</servlet-name>
         <url-pattern>/Verification.do</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>UpdateUser</servlet-name>
         <url-pattern>/UpdateUser.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteFilm</servlet-name>
+        <url-pattern>/DeleteFilm.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

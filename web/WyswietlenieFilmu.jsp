@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <IFRAME SRC="http://www.mp4upload.com/embed-znqard8wfaex.html" allowfullscreen="true" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360></IFRAME>
+        <IFRAME SRC="<%=request.getParameter("Film")%>" allowfullscreen="true" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360></IFRAME>
         <form action="Main.jsp">
             <input type="submit" value="Powrót" />
         </form>

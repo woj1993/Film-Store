@@ -56,8 +56,8 @@ public class SQL implements Serializable {
         rawstatment.executeUpdate(tabFilmy);
         rawstatment.executeUpdate(tabUżytkownicy);
         rawstatment.close();
-        WstawUżytkownika("a", "a", "a", true, true);
-        WstawFilm("dan", "dan", "dan", "http://www.mp4upload.com/znqard8wfaex");
+        WstawUżytkownika("admin", "admin", "admin", true, true);
+        WstawFilm("dan", "dan", "dan", "http://www.mp4upload.com/embed-znqard8wfaex.html");
     }
 
     public boolean isConnection() {
@@ -187,10 +187,12 @@ public class SQL implements Serializable {
         }
     }
     public boolean ZmieńHasło(String login, String hasło) {
-        String query = "UPDATE Users SET hasło='" + hasło + "'WHERE login='" + login + "';";
+        String query = "UPDATE Users SET hasło=? WHERE login=?";
         try {
-            rawstatment = połączenie.createStatement();
-            rawstatment.executeUpdate(query);
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setString(1, hasło);
+            preparedstatment.setString(2, login);
+            preparedstatment.executeUpdate();
             return true;
         } catch (Exception e) {
         }
@@ -199,15 +201,42 @@ public class SQL implements Serializable {
     }
     
         public boolean ZmieńDanePersonalne(String login, String imie) {
-        String query = "UPDATE Users SET imie='" + imie + "'WHERE login='" + login + "';";
+        String query = "UPDATE Users SET imie=? WHERE login=?";
         try {
-            rawstatment = połączenie.createStatement();
-            rawstatment.executeUpdate(query);
-
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setString(1, imie);
+            preparedstatment.setString(2, login);
+            preparedstatment.executeUpdate();
             return true;
         } catch (Exception e) {
         }
         return false;
 
     }
+        
+        public boolean TakZapłacił(String Login, Boolean zapłacony){
+            String query = "UPDATE Users SET abonament_zapłacony=? WHERE login=?";
+            try {
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setBoolean(1, zapłacony);
+            preparedstatment.setString(2, Login);
+            preparedstatment.executeUpdate();
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
+        }
+        
+        public boolean UsuńFilm(String Tytuł){
+            String query = "DELETE from Filmy WHERE tytuł=?";
+        try {
+            preparedstatment = połączenie.prepareStatement(query);
+            preparedstatment.setString(1, Tytuł);
+            preparedstatment.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+        }
 }

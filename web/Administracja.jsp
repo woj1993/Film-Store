@@ -46,6 +46,7 @@
                     </td>
                     <td><form action="HasPayed.do" method="POST">
                             <input type="hidden" name="akcja" value="delete" />
+                            <input type="hidden" name="Zapłacił" value="<%=Użytkownik.Zapłacił()%>" />
                             <input type="hidden" name="Login" value="<%=Użytkownik.GetLogin()%>" />
                             <input type="submit" value="Zmień" />
                         </form>

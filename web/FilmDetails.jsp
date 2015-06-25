@@ -24,6 +24,7 @@
         <p>Autor: <%=Film.GetAutor()%></p>
         <p>Czas powstania: <%=Film.GetRok()%></p>
         <form action="Watch.do">
+            <input type="hidden" name="Film" value="<%=Film.GetFilm()%>" />
             <input type="submit" value="Oglądaj" />
         </form>
         <p><A HREF="Main.jsp">Panel Główny</A></p>

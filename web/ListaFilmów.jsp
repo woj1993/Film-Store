@@ -1,7 +1,9 @@
 <%@page import="Beans.FILM"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="Beans.UŻYTKOWNIK"%>
+<jsp:useBean id="Użytkownik" scope="session" class="Beans.UŻYTKOWNIK" />
+<%Użytkownik = (UŻYTKOWNIK) session.getAttribute("Użytkownik");%>
 <!DOCTYPE html>
 <jsp:useBean id="sql" scope="session" class="Beans.SQL" />
 
@@ -49,11 +51,12 @@
                             <input type="hidden" name="tytuł" value="<%=Film.GetTytuł()%>" />
                             <input type="submit" value="Szczegóły" />
                         </form>
-                        <form action="UpdateFilm.do">
-                            <input type="hidden" name="action" value="delete" />
-                            <input type="hidden" name="title" value="<%=Film.GetTytuł()%>" />
+                            <% if (Użytkownik.JestAdminem()) {%>
+                        <form action="DeleteFilm.do">
+                            <input type="hidden" name="tytuł" value="<%=Film.GetTytuł()%>" />
                             <input type="submit" value="Usuń" />
                         </form>
+                            <%}%>
 
                     </td>
                 </tr>
