@@ -26,7 +26,7 @@
         <h1>Profil Użytkownika <%=Użytkownik.GetLogin()%></h1>
         <p></p>
 
-        <form action="UpdateUser.do" method="POST" onsubmit="if (haslo(this, '<%=Użytkownik.GetHasło()%>'))
+        <form action="UpdateUser.do" method="POST" onsubmit="if (hasło(this, '<%=Użytkownik.GetHasło()%>'))
                     return true;
                 return false">
             <table border="1">
@@ -42,14 +42,14 @@
                     </tr>
                     <tr>
                         <td>Nowe Hasło</td>
-                        <td><input type="password" name="password" value="" /></td>
+                        <td><input type="password" name="hasło" value="" /></td>
                     </tr>
                     <tr>
                         <td>Powtórz Hasło</td>
-                        <td><input type="password" name="rPassword" value="" /></td>
+                        <td><input type="password" name="rhasło" value="" /></td>
                     </tr>
                     <tr>
-                        <td><input type="hidden" name="akcja" value="haslo" />
+                        <td><input type="hidden" name="akcja" value="hasło" />
                             <input type="hidden" name="login" value="<%=Użytkownik.GetLogin()%>" />
                             <input type="reset" value="RESET" /></td>
                         <td><input type="submit" value="ZMIEŃ" /></td>
@@ -73,7 +73,7 @@
                 <tbody>
                     <tr>
                         <td>Imię</td>
-                        <td><input type="text" name="name" value="<%=Użytkownik.GetImie()%>" /></td>
+                        <td><input type="text" name="imie" value="<%=Użytkownik.GetImie()%>" /></td>
                     </tr>
                     <tr>
                         <td><input type="hidden" name="akcja" value="person" />
